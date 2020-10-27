@@ -1,2 +1,3 @@
 # StockServer
 Just a simple QR Code Reader.
+Nothing to see here...
