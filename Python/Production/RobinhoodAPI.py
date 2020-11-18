@@ -74,7 +74,8 @@ def purchase_stocks_maximum_amount(Ticker):
     current_stock_price = robin_stocks.get_latest_price(Ticker)
     current_funds = get_funds()
     stock_purchase_quantity = int(float(current_funds) / float(current_stock_price[0]))
-    
+    print ("Current funds = " + str(current_funds))
+    print ("Current stock price = " + str(current_stock_price))
     #purchase_stocks_market_order (Ticker, stock_purchase_quantity)
     
     return stock_purchase_quantity

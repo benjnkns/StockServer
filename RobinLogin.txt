@@ -1,0 +1,3 @@
+Loggin into Robinhood...
+2020-11-17
+{'IDEX': {'price': '1.041900', 'quantity': '22.00000000', 'average_buy_price': '0.9500', 'equity': '22.92', 'percent_change': '9.67', 'equity_change': '2.021800', 'type': 'stock', 'name': 'Ideanomics', 'id': '61fec2c4-2c8e-470d-88b1-6e211f004d1e', 'pe_ratio': None, 'percentage': '100.00'}}
