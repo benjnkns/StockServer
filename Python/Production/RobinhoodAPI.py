@@ -27,8 +27,15 @@ def get_holdings():
 
 
 def get_funds():
-    funds = build_profile()
-    return funds['cash']
+    funds = load_account_profile()
+    return funds['buying_power']
+
+
+# In [4.5]:
+
+
+def load_account_profile():
+    return robin_stocks.profiles.load_account_profile()
 
 
 # In[5]:
