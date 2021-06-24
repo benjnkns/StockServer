@@ -4,7 +4,7 @@
 # In[1]:
 
 
-import robin_stocks
+import robin_stocks.robinhood as robin_stocks
 from robin_stocks import *
 
 
@@ -70,7 +70,7 @@ def sell_stocks_market_order (Ticker, quantity):
 
 
 def sell_stocks_limit_order (Ticker, quantity, limit_price):
-    #robin_stocks.order_sell_limit(Ticker,quantity,limit_price)
+    robin_stocks.order_sell_limit(Ticker,quantity,limit_price)
     return 1
 
 
@@ -82,7 +82,7 @@ def purchase_stocks_maximum_amount(Ticker):
     current_funds = get_funds()
     stock_purchase_quantity = int(float(current_funds) / float(current_stock_price[0]))
     
-    #purchase_stocks_market_order (Ticker, stock_purchase_quantity)
+    purchase_stocks_market_order (Ticker, stock_purchase_quantity)
     
     return stock_purchase_quantity
 
