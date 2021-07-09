@@ -12,7 +12,7 @@ from robin_stocks import *
 
 
 def login(username, password):
-    return robin_stocks.login(username, password)
+    return robin_stocks.login(username, password, expiresIn=86400, store_session=True)
 
 
 # In[3]:

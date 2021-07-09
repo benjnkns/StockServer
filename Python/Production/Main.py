@@ -30,12 +30,12 @@ from Engine import make_predictions
 def buy():
     
     #Tickers to evaluate
-    tickers = ['ATVI','BABA','GOOGL','AMZN','AMC','AMD','AAL','APHA','AAPL','T','ACB','BAC','BYND','BA','BP','CGC','CCL','CPRX','KO','CRON','PLAY','DAL','GUSH','DIS','DKNG','ET','XOM','FB','F','FCEL','GE','GILD','GM','GPRO','HAL','HEXO','INO','INTC','IVR','JBLU','JNJ','JPM','KODK','KOS','LYFT','MRO','MFA','MGM','MSFT','MRNA','NFLX','NRZ','NKE','NKLA','NTDOY','NIO','NOK','NCLH','NVDA','OGI','PYPL','PTON','PENN','PFE','PLUG','SPHD','UCO','PSEC','RKT','RCL','SIRI','WORK','SNAP','SRNE','LUV','SPY','SAVE','SQ','SBUX','TCEHY','TSLA','TXMD','TLRY','TWTR','UBER','UAL','USO','VOO','VTI','SPCE','V','WMT','WFC','WKHS','ZM','ZNGA']
+    tickers = ['ATVI','BABA','GOOGL','AMZN','AMC','AMD','AAL','AAPL','T','ACB','BAC','BYND','BA','BP','CGC','CCL','CPRX','KO','CRON','PLAY','DAL','GUSH','DIS','DKNG','ET','XOM','FB','F','FCEL','GE','GILD','GM','GPRO','HAL','HEXO','INO','INTC','IVR','JBLU','JNJ','JPM','KODK','KOS','LYFT','MRO','MFA','MGM','MSFT','MRNA','NFLX','NRZ','NKE','NKLA','NTDOY','NIO','NOK','NCLH','NVDA','OGI','PYPL','PTON','PENN','PFE','PLUG','SPHD','UCO','PSEC','RKT','RCL','SIRI','WORK','SNAP','SRNE','LUV','SPY','SAVE','SQ','SBUX','TCEHY','TSLA','TXMD','TLRY','TWTR','UBER','UAL','USO','VOO','VTI','SPCE','V','WMT','WFC','WKHS','ZM','ZNGA']
     
     #log into robinhood
     print (datetime.date.today())
     print ("Loggin into Robinhood...")
-    login("benjnkns@gmail.com", "Guitarist474747123")
+    login("benjnkns@gmail.com", "4tpHFM0c646kponZN")
     
     #analyze the market
     print ("Analyzing the Market...")
@@ -71,7 +71,7 @@ def sell () :
     #log into robinhood
     print (datetime.date.today())
     print ("Loggin into Robinhood...")
-    login("benjnkns@gmail.com", "Guitarist474747123")
+    login("benjnkns@gmail.com", "4tpHFM0c646kponZN")
     
     #Display Profile Status
     RobinhoodProfile = build_profile()
