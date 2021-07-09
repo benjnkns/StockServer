@@ -1,0 +1,8 @@
+Category,Logic
+pct,if #tsla  < -5 then 'buy $500' else 0
+price,if #tsla  < 500 then 'buy $1000' else 0
+price,if #U  > 150 then 'sell @2 stocks' else 0
+price,if #U  > 150 then 'sell @2 stocks' else 0
+price,if #U  < 105 then 'buy @2 stocks' else 0
+pct,if #AMZN  > 2 then 'buy $500 stocks' else 0
+pct,if #HP  < -5 then 'buy @10 stocks' else 0
