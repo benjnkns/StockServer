@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[9]:
+# In[19]:
 
 
-#import importlib
-#import import_ipynb
 import datetime
 from datetime import timedelta
+import time
 
 # MY STUFF
 import RobinhoodAPI
@@ -19,32 +18,37 @@ from RobinhoodAPI import purchase_stocks_maximum_amount
 from RobinhoodAPI import sell_stocks_limit_order
 from RobinhoodAPI import get_current_ticker_price
 
-import Engine
-#importlib.reload(Engine)
+import Engine #Is this how Tesla does it?
 from Engine import make_predictions
 
 
-# In[7]:
+# In[21]:
+
+
+#Tickers to evaluate
+tickers = ['ATVI','BABA','GOOGL','AMZN','AMC','AMD','AAL','AAPL','T','ACB','BAC','BYND','BA','BP','CGC','CCL','CPRX','KO','CRON','PLAY','DAL','GUSH','DIS','DKNG','ET','XOM','FB','F','FCEL','GE','GILD','GM','GPRO','HAL','HEXO','INO','INTC','IVR','JBLU','JNJ','JPM','KODK','KOS','LYFT','MRO','MFA','MGM','MSFT','MRNA','NFLX','NRZ','NKE','NKLA','NTDOY','NIO','NOK','NCLH','NVDA','OGI','PYPL','PTON','PENN','PFE','PLUG','SPHD','UCO','PSEC','RKT','RCL','SIRI','WORK','SNAP','SRNE','LUV','SPY','SAVE','SQ','SBUX','TCEHY','TSLA','TXMD','TLRY','TWTR','UBER','UAL','USO','VOO','VTI','SPCE','V','WMT','WFC','WKHS','ZM','ZNGA']
+
+
+# In[25]:
 
 
 def buy():
-    
-    #Tickers to evaluate
-    tickers = ['ATVI','BABA','GOOGL','AMZN','AMC','AMD','AAL','AAPL','T','ACB','BAC','BYND','BA','BP','CGC','CCL','CPRX','KO','CRON','PLAY','DAL','GUSH','DIS','DKNG','ET','XOM','FB','F','FCEL','GE','GILD','GM','GPRO','HAL','HEXO','INO','INTC','IVR','JBLU','JNJ','JPM','KODK','KOS','LYFT','MRO','MFA','MGM','MSFT','MRNA','NFLX','NRZ','NKE','NKLA','NTDOY','NIO','NOK','NCLH','NVDA','OGI','PYPL','PTON','PENN','PFE','PLUG','SPHD','UCO','PSEC','RKT','RCL','SIRI','WORK','SNAP','SRNE','LUV','SPY','SAVE','SQ','SBUX','TCEHY','TSLA','TXMD','TLRY','TWTR','UBER','UAL','USO','VOO','VTI','SPCE','V','WMT','WFC','WKHS','ZM','ZNGA']
     
     #log into robinhood
     print (datetime.date.today())
     print ("Loggin into Robinhood...")
     login("benjnkns@gmail.com", "4tpHFM0c646kponZN")
-    
+    time.sleep(2)
     #analyze the market
     print ("Analyzing the Market...")
     print ("Making predictions...")
-    predictions = make_predictions(tickers, datetime.date.today(), 10)
-    
+    try:
+        predictions = make_predictions(tickers, datetime.date.today(), 10)
+    except:
+        print("Error while making predictions..")
     #decide which stock to buy
     total_gains = []
-    for i in range(0, len(tickers)):
+    for i in range(0, len(predictions)):
         total_gains.append(predictions[i][2] - predictions[i][1])
         print (tickers[i] + "is expected to gain " + str(total_gains[i]))
     max_gain = max(total_gains)
@@ -60,14 +64,11 @@ def buy():
     print ("Purchased " + str(stocks_purchased) + " stocks of " + stock_to_purchase)
 
 
-# In[8]:
+# In[26]:
 
 
 def sell () :
-    
-    #Tickers to evaluate
-    tickers = ['ATVI','BABA','GOOGL','AMZN','AMC','AMD','AAL','APHA','AAPL','T','ACB','BAC','BYND','BA','BP','CGC','CCL','CPRX','KO','CRON','PLAY','DAL','GUSH','DIS','DKNG','ET','XOM','FB','FIT','F','FCEL','GE','GILD','GM','GPRO','HAL','HEXO','INO','INTC','IVR','JBLU','JNJ','JPM','KODK','KOS','LYFT','MRO','MFA','MGM','MSFT','MRNA','NFLX','NRZ','NKE','NKLA','NTDOY','NIO','NOK','NCLH','NVDA','OGI','PYPL','PTON','PENN','PFE','PLUG','SPHD','UCO','PSEC','RKT','RCL','SIRI','WORK','SNAP','SNE','SRNE','LUV','SPY','SAVE','SQ','SBUX','TCEHY','TSLA','TXMD','TLRY','TWTR','UBER','UAL','USO','VOO','VTI','SPCE','V','WMT','WFC','WKHS','ZM','ZNGA']
-    
+
     #log into robinhood
     print (datetime.date.today())
     print ("Loggin into Robinhood...")
@@ -107,5 +108,5 @@ def sell () :
 # In[ ]:
 
 
-
+#Woo hoo
 

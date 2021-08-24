@@ -3,11 +3,9 @@
 
 # ### This file compiles data.
 
-# In[2]:
+# In[1]:
 
 
-#import importlib
-#import import_ipynb
 import datetime
 import numpy
 import pandas
@@ -17,8 +15,8 @@ from pandas_datareader import data as pdr
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import scale, StandardScaler
 
+#My Stuff
 import Analytics
-#importlib.reload(Analytics)
 from Analytics import Simple_Moving_Average 
 from Analytics import Simple_Moving_Average_20Day
 from Analytics import Relative_Strength_Index
@@ -31,7 +29,7 @@ from Analytics import Rate_Of_Change_20Day
 yf.pdr_override() # <-- Here is the fix
 
 
-# In[3]:
+# In[2]:
 
 
 def get_ticker_data(ticker, start_date, end_date):
@@ -40,7 +38,7 @@ def get_ticker_data(ticker, start_date, end_date):
     return data
 
 
-# In[8]:
+# In[3]:
 
 
 def build_training_set(ticker, date, days_out):
@@ -114,7 +112,7 @@ def build_training_set(ticker, date, days_out):
     
 
 
-# In[31]:
+# In[4]:
 
 
 def build_prediction_set(ticker, date, days_out):
@@ -182,7 +180,7 @@ def build_prediction_set(ticker, date, days_out):
     
 
 
-# In[32]:
+# In[5]:
 
 
 def scale_data(data):
@@ -190,7 +188,7 @@ def scale_data(data):
     #return data
 
 
-# In[33]:
+# In[6]:
 
 
 def unscale_data(data):
@@ -198,8 +196,17 @@ def unscale_data(data):
     #return data
 
 
-# In[54]:
+# In[9]:
 
 
 # WOOT
+#start_date = datetime.datetime(2013, 1, 1)
+#end_date   = datetime.datetime(2018, 3, 9)
+#get_ticker_data('AAPL', start_date, end_date)
+
+
+# In[ ]:
+
+
+
 

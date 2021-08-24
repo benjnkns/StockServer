@@ -1,25 +1,30 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[14]:
 
 
-import robin_stocks.robinhood as robin_stocks
+import robin_stocks
+import pyotp
 from robin_stocks import *
+# MFA: LQMLQPGPNGQFSOG2
+# Bakup: 768783 811148
 
 
-# In[2]:
+# In[15]:
 
 
 def login(username, password):
-    return robin_stocks.login(username, password, expiresIn=86400, store_session=True)
+    totp  = pyotp.TOTP("LQMLQPGPNGQFSOG2").now()
+    print("Current OTP:", totp)
+    return robin_stocks.robinhood.login(username, password, 86400, mfa_code=totp)
 
 
 # In[3]:
 
 
 def get_holdings():
-    my_stocks = robin_stocks.build_holdings()
+    my_stocks = robin_stocks.robinhood.build_holdings()
     return my_stocks
 
 
@@ -28,42 +33,44 @@ def get_holdings():
 
 def get_funds():
     funds = load_account_profile()
-    return funds['buying_power']
+    return funds['cash']
 
 
 # In[5]:
 
 
-def load_account_profile():
-    return robin_stocks.profiles.load_account_profile()
+def get_current_ticker_price(Ticker):
+    return robin_stocks.robinhood.get_latest_price(Ticker)
 
 
 # In[6]:
 
 
-def get_current_ticker_price(Ticker):
-    return robin_stocks.get_latest_price(Ticker)
+def build_profile():
+    return robin_stocks.robinhood.build_user_profile()
 
 
 # In[7]:
 
 
-def build_profile():
-    return robin_stocks.build_user_profile()
+def load_account_profile():
+    return robin_stocks.robinhood.profiles.load_account_profile()
 
 
 # In[8]:
 
 
 def purchase_stocks_market_order (Ticker, quantity):
-    robin_stocks.order_buy_market(Ticker, quantity)
+    robin_stocks.robinhood.order_buy_market(Ticker, quantity)
+    return 1
 
 
 # In[9]:
 
 
 def sell_stocks_market_order (Ticker, quantity):
-    robin_stocks.order_sell_market(Ticker, quantity)
+    robin_stocks.robinhood.order_sell_market(Ticker, quantity)
+    return 1
 
 
 # In[10]:
@@ -78,7 +85,7 @@ def sell_stocks_limit_order (Ticker, quantity, limit_price):
 
 
 def purchase_stocks_maximum_amount(Ticker):
-    current_stock_price = robin_stocks.get_latest_price(Ticker)
+    current_stock_price = robin_stocks.robinhood.get_latest_price(Ticker)
     current_funds = get_funds()
     stock_purchase_quantity = int(float(current_funds) / float(current_stock_price[0]))
     
@@ -87,10 +94,17 @@ def purchase_stocks_maximum_amount(Ticker):
     return stock_purchase_quantity
 
 
-# In[12]:
+# In[19]:
 
 
-#http://www.robin-stocks.com/en/latest/quickstart.html
+#MFA: JLON5HQTEVQK3VQM
+# Bakup: 768783 811148
+
+
+# In[20]:
+
+
+#pyotp.TOTP("LQMLQPGPNGQFSOG2").now()
 
 
 # In[ ]:
